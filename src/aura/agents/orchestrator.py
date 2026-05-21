@@ -3,7 +3,7 @@
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.agents import create_openai_tools_agent, AgentExecutor
-from langchain.tools import Tool # Import the base Tool class
+from langchain.tools import Tool
 
 from tools.utils import get_current_time
 from agents.navigator import get_navigator_agent_executor
@@ -22,7 +22,6 @@ def get_orchestrator_agent_executor():
         """Correctly invokes the navigator agent and returns its output."""
         response = navigator_agent_executor.invoke({"input": query})
         return response['output']
-    # --- END OF FIX ---
 
     # 1. Create the Navigator agent as a tool, using our new helper function
     navigator_tool = Tool(
