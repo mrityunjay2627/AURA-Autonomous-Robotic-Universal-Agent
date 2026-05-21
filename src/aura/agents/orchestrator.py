@@ -24,7 +24,7 @@ def get_orchestrator_agent_executor():
     # 1. Create the Navigator agent as a tool, using our new helper function
     navigator_tool = Tool(
         name="NavigationPlanner",
-        func=run_navigator, # Use the helper function here instead of invoke
+        func=run_navigator, # Used the helper function here instead of invoke
         description="Use this tool for any tasks that involve robot movement, pathfinding, or navigating to a location like 'kitchen' or 'charging dock'."
     )
 
