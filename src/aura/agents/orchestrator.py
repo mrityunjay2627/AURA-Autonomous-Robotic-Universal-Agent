@@ -1,5 +1,3 @@
-# src/aura/agents/orchestrator.py
-
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.agents import create_openai_tools_agent, AgentExecutor
