@@ -1,4 +1,3 @@
-# src/aura/main.py
 import time
 
 import config
