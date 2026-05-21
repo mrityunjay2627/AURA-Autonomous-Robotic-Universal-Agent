@@ -2,10 +2,9 @@
 
 import chromadb
 from chromadb.utils import embedding_functions
-from datetime import datetime # <-- Add this import at the top of the file
+from datetime import datetime 
 
 class MemoryManager:
-    # ... (the __init__ function remains exactly the same) ...
     def __init__(self, openai_api_key: str):
         self.client = chromadb.PersistentClient(path="./aura_memory")
         self.embedding_function = embedding_functions.OpenAIEmbeddingFunction(
@@ -18,7 +17,6 @@ class MemoryManager:
         )
         print("Memory Manager initialized with ChromaDB.")
 
-    # --- THIS IS THE CORRECTED FUNCTION ---
     def add_memory(self, fact: str, metadata: dict = None):
         """Adds a piece of text (a memory) to the database."""
         doc_id = str(hash(fact))
@@ -36,7 +34,6 @@ class MemoryManager:
             metadatas=[current_metadata] # Pass the guaranteed non-empty dict
         )
         print(f"Memory added: '{fact}'")
-    # --- END OF FIX ---
 
     # ... (the recall_memories function remains exactly the same) ...
     def recall_memories(self, query: str, num_results: int = 2) -> list[str]:
